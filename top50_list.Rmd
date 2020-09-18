@@ -8,7 +8,12 @@ knitr::opts_chunk$set(echo=F)
 knitr::opts_chunk$set(warning=F)
 knitr::opts_chunk$set(message=F)
 
-setwd("C:/Users/Harri/OneDrive/Documents/centauri/conjunction_analysis/")
+user_website <- file.path(path.expand('~'), "Website")
+
+if(!require(tidyverse)) {install.packages("tidyverse", repos="https://cran.us.r-project.org")}
+if(!require(kableExtra)) {install.packages("kableExtra", repos="https://cran.us.r-project.org")}
+if(!require(DT)) {install.packages("DT", repos="https://cran.us.r-project.org")
+
 library(tidyverse)
 library(readr)
 library(kableExtra)
@@ -19,14 +24,16 @@ library(RColorBrewer)
 library(stringr)
 library(scales)
 Sys.setenv(TZ='EST')
-mcma_objs = readRDS("RDSfiles/mcma_objs")
-all_conjs = readRDS("RDSfiles/all_conjs")
-all_conjs_expanded = readRDS("RDSfiles/all_conjs_expanded")
-derelicts = readRDS("RDSfiles/derelicts")
-derelictDat = readRDS("RDSfiles/derelictDatNew")
-alt_bins = readRDS("RDSfiles/alt_bins")
-file_list = readRDS("RDSfiles/file_list")
-all_conjs_2016 = readRDS("RDSfiles/all_conjs_2016")
+
+mcma_objs = readRDS(file.path(user_website, "RDSfiles", "mcma_objs"))
+all_conjs = readRDS(file.path(user_website, "RDSfiles", "all_conjs"))
+all_conjs_expanded = readRDS(file.path(user_website, "RDSfiles", "all_conjs_expanded"))
+derelicts = readRDS(file.path(user_website, "RDSfiles", "derelicts"))
+derelictDat = readRDS(file.path(user_website, "RDSfiles", "derelictDatNew"))
+alt_bins = readRDS(file.path(user_website, "RDSfiles", "alt_bins"))
+file_list = readRDS(file.path(user_website, "RDSfiles", "file_list"))
+all_conjs_2016 = readRDS(file.path(user_website, "RDSfiles", "all_conjs_2016"))
+
 today = toupper(strftime(Sys.Date(), format="%d%b%Y")) # current day
 path = "C:/Users/Harri/OneDrive/Documents/centauri/conjunction_analysis/conj_data"
 ```
@@ -117,6 +124,3 @@ mcma_objs_risk %>% group_by(cluster_new) %>%
   labs(fill="Cluster", y="Risk")+
   scale_fill_brewer(type = "qual")
 ```
-
-
-
