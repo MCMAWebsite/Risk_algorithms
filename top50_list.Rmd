@@ -1,5 +1,5 @@
 ---
-title: 'Statistically Most Concerning: Method 1'
+title: "Statistically Most Concerning: Method 1"
 output: html_document
 ---
 
@@ -35,7 +35,7 @@ file_list = readRDS(file.path(user_website, "RDSfiles", "file_list"))
 all_conjs_2016 = readRDS(file.path(user_website, "RDSfiles", "all_conjs_2016"))
 
 today = toupper(strftime(Sys.Date(), format="%d%b%Y")) # current day
-path = "C:/Users/Harri/OneDrive/Documents/centauri/conjunction_analysis/conj_data"
+#path = "C:/Users/Harri/OneDrive/Documents/centauri/conjunction_analysis/conj_data"
 ```
 ## Worst offender analysis-- Method 1
 
